@@ -3,14 +3,15 @@ require "rails_admin_globalize_field/engine"
 module RailsAdminGlobalizeField
 end
 
-require 'rails_admin/config/fields/association'
+require 'rails_admin/config/actions'
+require 'rails_admin/config/actions/base'
 
 module RailsAdmin
   module Config
     module Fields
       module Types
-        class GlobalizeTabs < RailsAdmin::Config::Fields::Association
-          RailsAdmin::Config::Fields::Types::register(:globalize_tabs, self)
+        class GlobalizeTabs < RailsAdmin::Config::Actions::Base
+          RailsAdmin::Config::Actions.register(self)
 
           register_instance_option :partial do
             :form_globalize_tabs
